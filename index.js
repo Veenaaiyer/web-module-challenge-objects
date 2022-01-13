@@ -85,7 +85,7 @@ const reviews = [
 Using the reviews array above:
   1. log only Julius' feedback to the console - no function needed 
 */
-
+console.log(reviews[5].feedback);
 
 
 
@@ -95,6 +95,17 @@ Reyna's feedback is missing! Use what you know to do the following: (no function
   2. log the reviews array to the console to check your work
 */
 
+function addFeedback(array){
+
+  for (let i=0;i< array.length; i++){
+
+    if (array[i].name === "Reyna"){
+      array[i].feedback = "this place is chill with really cool people, great for getting work done on weekdays"
+      return array[i];
+    }
+  }
+
+}
 
 
 
@@ -107,10 +118,15 @@ Write a function that creates an object with name, rating, feedback, add the new
   3. The function should push the following object to the array: {name: 'Daniela', rating: 5, review: 'Beautiful atmosphere and wonderful vegan options!' }
   4. should return the resulting array
 */
+const object = {name: 'daniela', rating: 5, review: 'Beautiful atmosphere and wonderful vegan options!'}
 
-function addReview(/*Your Code Here */){
+function addReview(array,object){
   /*Your Code Here */
+
+  array.push(object);
+  return array;
 }
+
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Write a function to return a review based on the index of the review in the array.
@@ -123,8 +139,9 @@ Use the getReviewByIndex function below to do the following:
 */
 
 
-function getReviewByIndex(/*Your code here*/) {
+function getReviewByIndex(array,index) {
   /*Your code here*/
+  return array[index];
 }
 
 
@@ -164,8 +181,13 @@ Use the getReviewsByRating function below to do the following:
   ]
 */
 
- function getReviewByRating(/* code here */) {
+ function getReviewByRating(array,rating) {
     /* code here */
+    for(let i=0; i<array.length; i++){
+      if(array[i].rating === rating){
+           return array[i].rating;
+      }
+    }
   }
 
   
@@ -182,8 +204,16 @@ Use the getLongReviews function below to do the following:
   ]
 */
 
-function getLongReviews(/* code here */) {
+function getLongReviews(arrays) {
     /* code here */
+    const longReviews = [];
+
+    for (let i=0;i<arrays.length;i++){
+      if(arrays[i].feedback.length>15){
+      longReviews.push(arrays[i].reviews)
+      }
+    }
+    return longReviews;
   }
   
 
